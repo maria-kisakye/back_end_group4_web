@@ -15,4 +15,13 @@ app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
 const sql =
 `CREATE TABLE IF NOT EXISTS users (
-Student VARCHAR(25),
+name VARCHAR(25),
+email VARCHAR(50),
+password VARCHAR(50),
+role ENUM('student', 'president', 'admin')
+)`;
+db.query(sql, (error,result) => {
+    if (error) throw error;
+    console.log("Users table created");
+});
+
